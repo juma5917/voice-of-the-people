@@ -1,0 +1,30 @@
+.header {
+    background-color: #389b64; /* Green background */
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header li {
+    display: inline-block;
+    margin: 0 10px; /* Add some spacing between links */
+  }
+  
+  .header a {
+    text-decoration: none;
+    color: #fff; /* White text */
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  .header a:hover {
+    background-color: #161817; /* Darker green on hover */
+  }
+  

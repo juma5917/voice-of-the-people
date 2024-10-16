@@ -1,0 +1,57 @@
+/* Dashboard.css */
+
+.dashboard-container {
+  /* General container styles */
+  padding: 20px;
+}
+
+.card-title {
+  /* Styles for card titles */
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #d81616; /* Dark gray color */
+}
+
+.table {
+  /* Styles for the feedback table */
+  color: #333; /* Dark gray color */
+}
+
+.table th {
+  /* Styles for table header cells */
+  background-color: #f2f2f2; /* Light gray background */
+  font-weight: bold;
+}
+
+.table td {
+  /* Styles for table data cells */
+  padding: 10px;
+}
+
+/* Optional: Add styles for chart containers */
+.chart-container {
+  /* Styles for chart containers */
+  height: 400px; /* Adjust height as needed */
+}
+
+/* Optional: Add styles for filter sections */
+.filter-section {
+  /* Styles for filter sections */
+  margin-bottom: 20px;
+}
+
+/* Optional: Add styles for filter labels */
+.filter-label {
+  /* Styles for filter labels */
+  font-weight: bold;
+}
+
+/* Optional: Add styles for filter dropdowns */
+.filter-dropdown {
+  /* Styles for filter dropdowns */
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}

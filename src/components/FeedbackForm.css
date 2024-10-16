@@ -1,0 +1,81 @@
+/* FeedbackForm.css */
+body {  /* Target the body element */
+  background-image: url('/home/juma-samwel-onyango/voice-of-the-people/src/components/images/faith.jpg');
+  background-size: cover;      /* Cover the entire viewport */
+  background-repeat: no-repeat; /* Prevent image repetition */
+  background-position: center;  /* Center the image */
+}
+
+.feedback-form-container {
+    /* background-color: #ccc; */
+    background-color: white;
+    width: 500px; /* Adjust width as needed */
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #141313;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input[type="email"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  
+  textarea {
+    height: 100px;
+    resize: vertical;
+  }
+  
+  .submit-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .message {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #333;
+  }
+  
+  .message.success {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
+  
+  .message.error {
+    background-color: #f44336; /* Red */
+    color: white;
+  }
+  
