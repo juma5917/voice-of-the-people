@@ -85,7 +85,14 @@ const Dashboard = () => {
   };
 
   return (
-    <Container className="mt-5">
+    <Container className="mt-5"
+    style={{ 
+      transition: 'transform 0.3s ease', // Add a smooth transition
+      ':hover': {
+          transform: 'scale(1.05)' // Make it slightly larger on hover
+      }
+  }}
+    >
       <h2 className="text-center mb-4">
         Government Dashboard
       </h2>

@@ -1,6 +1,6 @@
 
 .home-bg {
-    background: url('/home/juma-samwel-onyango/voice-of-the-people/src/components/images/faith.jpg') no-repeat center center/cover;
+    background: url('/home/juma-samwel-onyango/voice-of-the-people/src/components/images/desktop-wallpaper-dark-grey-background-greyish-best.jpg') no-repeat center center/cover;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -8,6 +8,10 @@
     display: flex;
     background-size: cover;
     background-position: center;
+}
+
+.juma {
+    background-image: url('/home/juma-samwel-onyango/voice-of-the-people/src/components/images/pamoja.jpg');
 }
 .container {
     background-color: white;
@@ -18,7 +22,29 @@
     border: 1px solid #ccc;
     border-radius: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                      
+}
+
+.container1 {
+    background-image: url('/home/juma-samwel-onyango/voice-of-the-people/src/components/images/pamoja.jpg');
+    width: 500px;
+    max-width: 90%;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     
+                    
+}
+.container1:hover {
+    transform: scale(1.05);
+    transition: 'transform 0.3s ease';
+}
+
+.container:hover {
+    transform: scale(1.05);
+    transition: 'transform 0.3s ease';
 }
 
 .flag-img {

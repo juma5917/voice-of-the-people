@@ -30,7 +30,14 @@ const FeedbackForm = () => {
   };
 
   return (
-    <div className="feedback-form-container">
+    <div className="feedback-form-container"
+    style={{ 
+      transition: 'transform 0.3s ease', // Add a smooth transition
+      ':hover': {
+          transform: 'scale(1.05)' // Make it slightly larger on hover
+      }
+  }}
+    >
       <h2>Your Community, Your Platform</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">

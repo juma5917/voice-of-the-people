@@ -8,8 +8,8 @@ const Header = () => {
         <nav className="header">
             <ul>
                 <li><Link to="/home">Home</Link></li> 
-                <li><Link to="/feedback">Submit Feedback</Link></li> 
-                <li><Link to="/dashboard">Dashboard</Link></li>
+                <li><Link to="/feedback">Feedback</Link></li> 
+                <li><Link to="/dashboard">Admin Dashboard</Link></li>
             </ul>
         </nav>
     );

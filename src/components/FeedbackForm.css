@@ -1,7 +1,7 @@
 /* FeedbackForm.css */
 body {  /* Target the body element */
-  background-image: url('/home/juma-samwel-onyango/voice-of-the-people/src/components/images/faith.jpg');
-  background-size: cover;      /* Cover the entire viewport */
+  background-image: url('/home/juma-samwel-onyango/voice-of-the-people/src/components/images/desktop-wallpaper-dark-grey-background-greyish-best.jpg');
+  background-size: cover;      /* Cover the entire viewport */  
   background-repeat: no-repeat; /* Prevent image repetition */
   background-position: center;  /* Center the image */
 }
@@ -16,6 +16,12 @@ body {  /* Target the body element */
     border-radius: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
+
+  .feedback-form-container:hover {
+    transform: scale(1.05);
+    transition: 'transform 0.3s ease';
+}
+
   
   h2 {
     text-align: center;
