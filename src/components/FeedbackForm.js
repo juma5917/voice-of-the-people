@@ -9,15 +9,36 @@ const FeedbackForm = () => {
   const [county, setCounty] = useState('');
   const [message, setMessage] = useState('');
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     await axios.post('http://127.0.0.1:8000/api/submit/', {
+  //       email,
+  //       feedback,
+  //       category,
+  //       county,
+  //     });
+  //     setMessage('Feedback submitted successfully!');
+  //     // Clear the form after submission
+  //     setFeedback('');
+  //     setEmail('');
+  //     setCategory('');
+  //     setCounty('');
+  //   } catch (error) {
+  //     setMessage('Error submitting feedback.');
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/submit-feedback', {
-        feedback,
+      const response = await axios.post('http://127.0.0.1:8000/api/submit/', {
         email,
+        feedback,
         category,
         county,
       });
+      console.log('Response:', response);  // Log successful response
       setMessage('Feedback submitted successfully!');
       // Clear the form after submission
       setFeedback('');
@@ -25,9 +46,11 @@ const FeedbackForm = () => {
       setCategory('');
       setCounty('');
     } catch (error) {
+      console.error('Error:', error.response || error.message);  // Log detailed error
       setMessage('Error submitting feedback.');
     }
   };
+  
 
   return (
     <div className="feedback-form-container"
