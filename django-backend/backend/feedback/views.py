@@ -37,30 +37,19 @@ def submit_feedback(request):
         serializer = FeedbackSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-
-            # Get the feedback text from the validated data
             feedback = serializer.validated_data['feedback']
-
-            # Preprocess the feedback (e.g., remove stopwords, tokenize, etc.)
             processed_text = preprocess_feedback(feedback)
-            
-            # Perform sentiment analysis on the feedback
             sentiment = analyze_sentiment(feedback)
-
-            # Update the sentiment score in the database
             feedback = serializer.instance
-            
-                        
+                      
             feedback.sentiment_score = sentiment['score']
             feedback.save()
-
-            # Update the sentiment label in the database
             feedback.sentiment_label = sentiment['label']
             feedback.save()
 
 
 
-            # Return the original feedback, processed text, and sentiment score
+            
             return Response({
                 'feedback': serializer.data,
                 'processed_text': processed_text,
