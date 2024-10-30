@@ -1,8 +1,7 @@
+/* LoginPage.css */
 
 
-
-.feedback-form-container {
-    /* background-color: #ccc; */
+.login-container {
     background-color: white;
     width: 500px; /* Adjust width as needed */
     margin: 50px auto;
@@ -10,9 +9,10 @@
     border: 1px solid #ccc;
     border-radius: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
   }
 
-  .feedback-form-container:hover {
+  .login-container:hover {
     transform: scale(1.05);
     transition: 'transform 0.3s ease';
 }
@@ -21,7 +21,7 @@
   h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: #141313;
+    color: #333;
   }
   
   .form-group {
@@ -34,19 +34,13 @@
     font-weight: bold;
   }
   
-  input[type="email"],
-  textarea,
-  select {
+  input[type="text"],
+  input[type="password"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
     box-sizing: border-box;
-  }
-  
-  textarea {
-    height: 100px;
-    resize: vertical;
   }
   
   .submit-button {
@@ -60,23 +54,20 @@
     font-size: 16px;
     border-radius: 3px;
     cursor: pointer;
+    margin-top: 20px;
   }
   
-  .message {
-    margin-top: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    color: #333;
+  button[type="submit"]:hover {
+    background-color: #45a049; /* Darker green */
   }
   
-  .message.success {
-    background-color: #4CAF50; /* Green */
-    color: white;
+  .error {
+    color: red;
+    margin-bottom: 10px;
   }
   
-  .message.error {
-    background-color: #f44336; /* Red */
-    color: white;
+  .login-link {
+    text-align: center;
+    margin-top: 15px;
   }
   

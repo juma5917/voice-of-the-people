@@ -1,6 +1,6 @@
 
 .home-bg {
-    background: url('/home/juma-samwel-onyango/voice-of-the-people/src/components/images/desktop-wallpaper-dark-grey-background-greyish-best.jpg') no-repeat center center/cover;
+    background: url('') no-repeat center center/cover;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -55,7 +55,7 @@
 h1 {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #51d81b; /* Kenya flag yellow */
+    color: #389b64; /* Kenya flag yellow */
 }
 
 .subheading {
@@ -72,7 +72,7 @@ p.lead {
 
 .cta-button {
     margin-top: 20px;
-    background-color: #48e019;
+    background-color: #389b64;
     border: none;
     color: #212529;
 }

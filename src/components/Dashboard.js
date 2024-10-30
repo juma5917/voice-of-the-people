@@ -17,7 +17,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/api/get-feedback');
+        const response = await axios.get('http://127.0.0.1:8000/api/feedback/');
         setFeedbackData(response.data);
         calculateCounts(response.data);
       } catch (error) {
@@ -193,6 +193,7 @@ const Dashboard = () => {
                     <th>Category</th>
                     <th>County</th>
                     <th>Date Submitted</th>
+                    <th>Sentiment Score</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -202,7 +203,8 @@ const Dashboard = () => {
                       <td>{feedback.feedback}</td>
                       <td>{feedback.category}</td>
                       <td>{feedback.county}</td>
-                      <td>{new Date(feedback.date).toLocaleString()}</td>
+                      <td>{new Date(feedback.created_at).toLocaleDateString()}</td>
+                      <td>{feedback.sentiment_score}</td>
                     </tr>
                   ))}
                 </tbody>

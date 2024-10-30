@@ -9,26 +9,6 @@ const FeedbackForm = () => {
   const [county, setCounty] = useState('');
   const [message, setMessage] = useState('');
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     await axios.post('http://127.0.0.1:8000/api/submit/', {
-  //       email,
-  //       feedback,
-  //       category,
-  //       county,
-  //     });
-  //     setMessage('Feedback submitted successfully!');
-  //     // Clear the form after submission
-  //     setFeedback('');
-  //     setEmail('');
-  //     setCategory('');
-  //     setCounty('');
-  //   } catch (error) {
-  //     setMessage('Error submitting feedback.');
-  //   }
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -37,6 +17,7 @@ const FeedbackForm = () => {
         feedback,
         category,
         county,
+        
       });
       console.log('Response:', response);  // Log successful response
       setMessage('Feedback submitted successfully!');
@@ -95,6 +76,16 @@ const FeedbackForm = () => {
             <option value="embezzlement">Embezzlement</option>
             <option value="infrastructure">Infrastructure</option>
             <option value="education">Education</option>
+            <option value="crime">Crime</option>
+            <option value="violence">Violence</option>
+            <option value="housing">Housing</option>
+            <option value="business">Business</option>
+            <option value="pension">Pension</option>
+            <option value="health">Health</option>
+            <option value="education">Education</option>
+            <option value="security">Security</option>
+            <option value="environment">Environment</option>
+            <option value="transport">Transport</option>
             {/* Add more categories as needed */}
           </select>
         </div>
@@ -119,9 +110,12 @@ const FeedbackForm = () => {
             <option value="Tharaka-Nithi">Tharaka-Nithi</option>
             <option value="Machakos">Machakos</option>
             <option value="Makueni ">Makueni </option>
+            <option value="Kisii">Kisii</option>
+            <option value="Nyandarua">Nyandarua</option>
             <option value="Kirinyaga">Kirinyaga</option>
+            <option value="Kwale">Kwale</option>
             <option value="Kiambu">Kiambu</option>
-            <option value="Turkana ">Turkana </option>
+            <option value="Turkana">Turkana </option>
             {/* <option value="Eldoret">Eldoret</option>
             <option value="Eldoret">Eldoret</option>
             <option value="Eldoret">Eldoret</option>

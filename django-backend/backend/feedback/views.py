@@ -29,6 +29,12 @@ from .models import Feedback
 from .serializers import FeedbackSerializer
 from .ml.preprocess import preprocess_feedback
 from .ml.sentiment import analyze_sentiment
+from .ml.topic_modeling import extract_topics_from_feedback
+from django.contrib.auth.models import User
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth import authenticate, login
+from rest_framework.authtoken.models import Token 
+
 
 
 @api_view(['POST'])
@@ -43,7 +49,6 @@ def submit_feedback(request):
             feedback = serializer.instance
                       
             feedback.sentiment_score = sentiment['score']
-            feedback.save()
             feedback.sentiment_label = sentiment['label']
             feedback.save()
 
@@ -64,20 +69,75 @@ def get_feedback(request):
     serializer = FeedbackSerializer(feedbacks, many=True)
     return Response(serializer.data)
 
-
-# Add the new analyze_feedback view
 @api_view(['POST'])
 def analyze_feedback(request):
     feedback_text = request.data.get('feedback_text', '')
 
-    # Preprocess the feedback
     processed_text = preprocess_feedback(feedback_text)
 
-    # Analyze the sentiment
     sentiment = analyze_sentiment(feedback_text)
 
-    # Return processed text and sentiment analysis results
     return Response({
         'processed_text': processed_text,
         'sentiment_score': sentiment['score'],
     })
+
+@api_view(['POST'])
+def analyze_topics(request):
+    feedback_list = request.data.get('feedback_text', [])
+
+    # if not feedback_list or all(not text.strip() for text in feedback_list):
+    #     return Response({"error": "Feedback list is empty or contains only whitespace."}, status=status.HTTP_400_BAD_REQUEST)
+    
+    topics = extract_topics_from_feedback(feedback_list)
+    
+    return Response(topics)
+
+
+@api_view(['POST'])
+def register_admin(request):
+    if request.method == 'POST':
+        username = request.data.get('username')
+        email = request.data.get('email')
+        password = request.data.get('password')
+
+        # Basic validation (you should add more robust validation)
+        if not all([username, email, password]):
+            return Response({'error': 'Please provide username, email, and password'}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            # Hash the password for security
+            hashed_password = make_password(password)
+
+            # Create the user
+            user = User.objects.create(
+                username=username,
+                email=email,
+                password=hashed_password,
+                is_staff=True,  # Make the user an admin
+                is_superuser=True  # Grant all permissions (optional)
+            )
+
+            # You can optionally return a token here for immediate login
+
+            return Response({'message': 'Admin registered successfully!'}, status=status.HTTP_201_CREATED)
+        except Exception as e:
+            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    return Response({'error': 'Invalid request method'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
+@api_view(['POST'])
+def login_admin(request):
+    if request.method == 'POST':
+        username = request.data.get('username')
+        password = request.data.get('password')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            token, created = Token.objects.get_or_create(user=user)
+            return Response({'token': token.key}, status=status.HTTP_200_OK)
+        else:
+            return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)

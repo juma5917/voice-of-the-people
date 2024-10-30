@@ -8,21 +8,21 @@ import { faBullhorn, faFlag, faHandsHelping } from '@fortawesome/free-solid-svg-
 import './Home.css';
 
 const Home = () => {
-    const navigate = useNavigate();  // React Router hook for navigation
+    const navigate = useNavigate();  
 
     const goToFeedback = () => {
-        navigate('/feedback');  // Redirect to feedback form page
+        navigate('/feedback');  
     };
 
     return (
         <div className="home-bg">
             {/* <Container className="text-center  bg-white h-75 w-50"> */}
             <Container fluid className="container1"
-            // Add a hover effect to the container
+            
                 style={{ 
-                    transition: 'transform 0.3s ease', // Add a smooth transition
+                    transition: 'transform 0.3s ease', 
                     ':hover': {
-                        transform: 'scale(1.05)' // Make it slightly larger on hover
+                        transform: 'scale(1.05)' 
                     }
                 }}
             >
@@ -79,7 +79,7 @@ Philosopher of language Peter Strawson (1919–2006) advocated the use of the te
                             Be part of the change. Your voice counts! Let's build a more transparent and accountable government together.
                         </p>
 
-                        <Button variant="warning" size="lg" className="cta-button" onClick={goToFeedback}>
+                        <Button variant="warning" size="lg" className="cta-button" onClick={goToFeedback} >
                             <FontAwesomeIcon icon={faBullhorn} /> Toa Maoni Yako (Give Your Feedback)
                         </Button>
                     </Col>
@@ -90,9 +90,9 @@ Philosopher of language Peter Strawson (1919–2006) advocated the use of the te
             <Container className="container1"
             // Add a hover effect to the container
                 style={{ 
-                    transition: 'transform 0.3s ease', // Add a smooth transition
+                    transition: 'transform 0.3s ease', 
                     ':hover': {
-                        transform: 'scale(1.05)' // Make it slightly larger on hover
+                        transform: 'scale(1.05)' 
                     }
                 }}
             >

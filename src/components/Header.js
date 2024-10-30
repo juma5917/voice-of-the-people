@@ -9,7 +9,7 @@ const Header = () => {
             <ul>
                 <li><Link to="/home">Home</Link></li> 
                 <li><Link to="/feedback">Feedback</Link></li> 
-                <li><Link to="/dashboard">Admin Dashboard</Link></li>
+                <li><Link to="/login">Admin Dashboard</Link></li>
             </ul>
         </nav>
     );
