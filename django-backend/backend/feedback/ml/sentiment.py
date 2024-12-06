@@ -33,15 +33,16 @@ def analyze_sentiment(feedback_text):
     score = sia.polarity_scores(feedback_text)['compound']
 
     # Adjust thresholds for classification
-    if score >= 0.5:
-        sentiment = "POSITIVE"
-    elif score <= -0.5:
-        sentiment = "NEGATIVE"
+    if score >= 0.3:
+        sentiment_label = "POSITIVE"
+    elif score <= -0.3:
+        sentiment_label = "NEGATIVE"
     else:
-        sentiment = "NEUTRAL"
+        sentiment_label = "NEUTRAL"
+
 
     return {
         
         'score': score,
-        'label': sentiment
+        'label': sentiment_label
     }

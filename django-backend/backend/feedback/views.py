@@ -22,9 +22,11 @@
 #     serializer = FeedbackSerializer(feedbacks, many=True)
 #     return Response(serializer.data)
 
+from rest_framework import generics, permissions
 from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from .models import Feedback
 from .serializers import FeedbackSerializer
 from .ml.preprocess import preprocess_feedback
@@ -35,7 +37,15 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate, login
 from rest_framework.authtoken.models import Token 
 
+class FeedbackDeleteView(generics.DestroyAPIView):
+    queryset = Feedback.objects.all()
+    serializer_class = FeedbackSerializer
+    permission_classes = [IsAuthenticated, IsAdminUser]  # Only authenticated admins can delete
 
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        self.perform_destroy(instance)
+        return Response(status=204)  # 204 No Content on successful delete
 
 @api_view(['POST'])
 def submit_feedback(request):
@@ -49,6 +59,8 @@ def submit_feedback(request):
             feedback = serializer.instance
                       
             feedback.sentiment_score = sentiment['score']
+
+            # Update the sentiment label in the database
             feedback.sentiment_label = sentiment['label']
             feedback.save()
 
@@ -58,7 +70,7 @@ def submit_feedback(request):
             return Response({
                 'feedback': serializer.data,
                 'processed_text': processed_text,
-                'sentiment_score': sentiment['score']
+                'sentiment_score': sentiment['score'],
             }, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

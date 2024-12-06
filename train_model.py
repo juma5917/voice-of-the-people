@@ -7,7 +7,7 @@ from sklearn.metrics import accuracy_score
 import pickle
 
 # Load your data into pandas
-df = pd.read_csv('C://Users/Administrator/Desktop/government_predictor/citizen_feedback_dataset.csv')
+df = pd.read_csv('citizen_feedback_dataset.csv')
 
 # Features and target variable
 X = df[['county','subcounty','ward', 'age', 'gender', 'occupation' ,'education_level', 'service_satisfaction_score']]

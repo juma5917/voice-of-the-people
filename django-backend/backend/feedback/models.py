@@ -47,6 +47,8 @@ class Feedback(models.Model):
     county = models.CharField(max_length=50, choices=COUNTY_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
     sentiment_score = models.FloatField(null=True, blank=True) 
+    sentiment_label = models.CharField(max_length=20, null=True, blank=True)
+
 
 
     def __str__(self):
